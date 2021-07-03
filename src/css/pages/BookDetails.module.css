@@ -1,0 +1,89 @@
+/* ----- General Part ----- */
+.general-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 75px;
+}
+.data-container {
+    display: flex;
+    width: 95%;
+    max-width: 1500px;
+    padding: 40px 20px;
+}
+
+
+/* ----- Image Part ----- */
+.image {
+    width: 17vw;
+    margin: 0 20px;
+}
+
+
+/* ----- Details Part ----- */
+.details-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+/* authors + title + subtitle + description */
+.author-container {display: flex;}
+.author {margin: 5px 10px 5px 0;}
+.title, .subtitle {margin: 5px 0;}
+.description {margin: 20px 0;}
+
+
+/* ----- Extras Part ----- */
+.extra-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 100%;
+}
+
+/* Rating Part */
+.rating {max-width: 100%;}
+
+/* More Info Part */
+.more-info-container {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* categories */
+.category-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* info */
+.info-container {
+    width: 50%;
+    margin-top: 10px;
+}
+
+/* link */
+.link {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.3em;
+    color: #bc4639;
+}
+
+
+/* Responsiveness */
+@media only screen and (max-width: 800px) {
+    .image {width: 100px;}
+    .more-info-container {
+        flex-direction: column-reverse;
+    }
+    .info-container {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .category-container {width: 100%;}
+}   

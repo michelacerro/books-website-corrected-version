@@ -1,0 +1,19 @@
+.button {
+    border: none;
+    border-radius: 7px;
+    background-color: #bc4639;
+    color: #f3e0dc;
+    padding: 10px;
+    font-size: 1.2em;
+}
+.button:hover {
+    cursor: pointer;
+    background-color: #f3e0dc;
+    color: #bc4639;
+    font-weight: bold;
+}
+
+/* Responsiveness */
+@media only screen and (max-width: 800px) {
+    .button {font-size: 1em;}
+}

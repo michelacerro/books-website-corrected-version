@@ -1,0 +1,52 @@
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1.5px solid #5c2018;
+    padding: 10px;
+}
+.form:hover {border-bottom: 1.5px solid pink;}
+
+/* input */
+.input {
+    width: 500px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    padding: 0 10px;
+    font-size: 1.5em;
+}
+
+/* icon */
+.button {
+    width: 4em;
+    border: none;
+    background-color: transparent;
+}
+.button:hover {
+    cursor: pointer;
+    color: pink;
+}
+
+.icon {
+    color: black;
+    font-size: 2.5em;
+}
+
+
+/* Responsiveness */
+@media only screen and (max-width: 800px) {
+    .input {
+        max-width: 300px;
+        font-size: 1em;
+    }
+    .icon {font-size: 1.3em;}
+}

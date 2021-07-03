@@ -1,0 +1,48 @@
+/* General Part */
+* {margin: 0;}
+
+.link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.general-container {
+    display: flex;
+    border-radius: 5px;
+    width: 550px;
+    margin: 20px;
+    padding: 10px;
+}
+.general-container:hover {
+    background-color: #d4a59a;
+}
+
+
+/* Image */
+.image {
+    max-width: 150px;
+    max-height: 225px;
+    margin-right: 15px;
+}
+
+/* author + title */
+.author-container {display: flex;}
+.author {margin: 5px 10px 0 0;}
+
+/* categories */
+.category-container {
+    display: flex;
+    margin-top: 15px;
+}
+
+
+/* Responsiveness */
+@media only screen and (max-width: 800px) {
+    .general-container {width: 300px;}
+    .image {
+        max-width: 75px;
+        max-height: 112.5px;
+    }
+    .author-container {flex-direction: column;}
+    .category-container {flex-direction: column;}
+}
