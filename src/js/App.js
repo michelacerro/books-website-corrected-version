@@ -22,7 +22,7 @@ import BookDetails from './pages/BookDetails';
 import Error from './pages/Error';
 
 //
-import PrivateRoute from './PrivateRoute';
+// import PrivateRoute from './PrivateRoute';
 
 const App = () => {
     return (
@@ -38,7 +38,7 @@ const App = () => {
                             <Route exact path='/signup' component={Signup} />
                             <Route exact path='/login' component={Login} />
                             <Route exact path='/logout' component={Logout} />
-                            <PrivateRoute exact path='/search' component={Search} />
+                            <Route exact path='/search' component={Search} />
                             <Route exact path='/results/:results' component={Results} />
                             <Route exact path='/info/:id' component={BookDetails} />
                             <Route component={Error} />
