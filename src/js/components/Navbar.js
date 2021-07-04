@@ -8,10 +8,12 @@ import {IoClose} from 'react-icons/io5';
 // Dependencies
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
+import {useSelector} from 'react-redux';
 
 
 const Navbar = () => {
     const [openMenu, setOpenMenu] = useState(false);
+    const log = useSelector(state => state.logReducer);
 
     const showMenu = () => {
         const n = document.getElementById('navbar');
@@ -41,18 +43,25 @@ const Navbar = () => {
                             <Link to='/search' className={NavbarCSS['navbar-links']}>Search</Link>
                         </button>
                         <div className={NavbarCSS['divider']}></div>
-                        <button className={NavbarCSS['navbar-item']} onClick={showMenu}>
-                            <Link to='/signup' className={NavbarCSS['navbar-links']}>Sign Up</Link>
-                        </button>
-                        <div className={NavbarCSS['divider']}></div>
-                        <button className={NavbarCSS['navbar-item']} onClick={showMenu}>
-                            <Link to='/login' className={NavbarCSS['navbar-links']}>Log In</Link>
-                        </button>
-                        <div className={NavbarCSS['divider']}></div>
-                        <button className={NavbarCSS['navbar-item']} onClick={showMenu}>
-                            <Link to='/logout' className={NavbarCSS['navbar-links']}>Log Out</Link>
-                        </button>
-                     </ul>
+                        {!log
+                            ?
+                            <> 
+                                <button className={NavbarCSS['navbar-item']} onClick={showMenu}>
+                                    <Link to='/signup' className={NavbarCSS['navbar-links']}>Sign Up</Link>
+                                </button>
+                                <div className={NavbarCSS['divider']}></div>
+                                <button className={NavbarCSS['navbar-item']} onClick={showMenu}>
+                                    <Link to='/login' className={NavbarCSS['navbar-links']}>Log In</Link>
+                                </button>
+                            </>
+                            :
+                            <>
+                                <button className={NavbarCSS['navbar-item']} onClick={showMenu}>
+                                    <Link to='/logout' className={NavbarCSS['navbar-links']}>Log Out</Link>
+                                </button>
+                            </>
+                        }                     
+                    </ul>
                 </div>
             </div>
         </div>
