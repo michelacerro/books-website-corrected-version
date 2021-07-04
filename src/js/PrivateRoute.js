@@ -14,8 +14,7 @@ const PrivateRoute = ({component: RouteComponent}) => {
             :
                 <div>
                     {alert('You should be logged to enter in this section!')}
-                    {/* sistemare testo */}
-                    <Redirect to={'/login'} />
+                     <Redirect to={'/login'} />
                 </div>
             }
         </Route>

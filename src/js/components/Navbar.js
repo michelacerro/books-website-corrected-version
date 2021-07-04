@@ -57,7 +57,7 @@ const Navbar = () => {
                             :
                             <>
                                 <button className={NavbarCSS['navbar-item']} onClick={showMenu}>
-                                    <Link to='/my-books' className={NavbarCSS['navbar-links']}>Log Out</Link>
+                                    <Link to='/my-books' className={NavbarCSS['navbar-links']}>My Books</Link>
                                 </button>
                                 <div className={NavbarCSS['divider']}></div>
                                 <button className={NavbarCSS['navbar-item']} onClick={showMenu}>
