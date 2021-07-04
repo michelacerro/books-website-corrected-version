@@ -19,10 +19,11 @@ import Logout from './pages/Logout';
 import Search from './pages/Search';
 import Results from './pages/Results';
 import BookDetails from './pages/BookDetails';
+import MyBooks from './pages/MyBooks';
 import Error from './pages/Error';
 
 //
-// import PrivateRoute from './PrivateRoute';
+import PrivateRoute from './PrivateRoute';
 
 const App = () => {
     return (
@@ -41,6 +42,7 @@ const App = () => {
                             <Route exact path='/search' component={Search} />
                             <Route exact path='/results/:results' component={Results} />
                             <Route exact path='/info/:id' component={BookDetails} />
+                            <PrivateRoute exact path='/my-books' component={MyBooks} />
                             <Route component={Error} />
                         </Switch>
                     </div>
