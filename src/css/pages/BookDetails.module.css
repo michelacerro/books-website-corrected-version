@@ -21,6 +21,21 @@
     margin: 0 20px;
 }
 
+/* to My Books */
+.to-my-books {
+    /* display: flex;
+    align-items: center; */
+    margin: 50px 0 0 20px;
+    border: none;
+    border-radius: 7px;
+    background-color: #4285f4;
+    color: #f3e0dc;
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.to-my-books:hover {cursor: pointer;}
+
 
 /* ----- Details Part ----- */
 .details-container {
@@ -72,22 +87,8 @@
     font-weight: bold;
     font-size: 1.3em;
     color: #bc4639;
+    margin-bottom: 20px;
 }
-
-/* to My Books */
-.to-my-books {
-    /* display: flex;
-    align-items: center; */
-    margin: 50px 0 0 20px;
-    border: none;
-    border-radius: 7px;
-    background-color: #4285f4;
-    color: #f3e0dc;
-    padding: 10px;
-    font-size: 1.2em;
-    font-weight: bold;
-}
-.to-my-books:hover {cursor: pointer;}
 
 
 /* Responsiveness */
