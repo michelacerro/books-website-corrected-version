@@ -32,9 +32,15 @@ const Results = () => {
                 <SearchBar />
             </div>
             <div className={ResultsCSS['books-container']}>
-                {books.map(book => (
-                    <Book key={book.id} info={book} />
-                ))}
+                {books !== undefined
+                    ? 
+                        books.map(book => (
+                            <Book key={book.id} info={book} />
+                        ))
+                    :
+                        <h3 className={ResultsCSS['no-results']}><strong>"{term}"</strong> did not produce results.
+                        <br />Please, insert a new search criterion.</h3>
+                }
             </div>
         </div>
     );

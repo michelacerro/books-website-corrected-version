@@ -1,12 +1,16 @@
 // Style
 import BookDetailsCSS from '../../css/pages/BookDetails.module.css';
 
+// Icons
+import {GoPlus} from 'react-icons/go';
+
 // Image
 import cover from '../../images/cover.jpg';
 
 // Dependencies
 import React, {useState, useEffect} from 'react';
 import {useParams, Link} from 'react-router-dom';
+import {useSelector} from 'react-redux';
 import axios from 'axios';
 
 // Components
@@ -16,6 +20,7 @@ import Button from '../components/Button';
 
 
 const BookDetails = () => {
+    const log = useSelector(state => state.logReducer);
     const [details, setDetails] = useState([]);
     const {id} = useParams();
     const apyKey = process.env.REACT_APP_BOOKS_API_KEY;
@@ -28,7 +33,11 @@ const BookDetails = () => {
             setDetails(response.data.volumeInfo);
         }
         fetchDetails();
-    }, [url])
+    }, [url]);
+
+    const toMyBooks = () => {
+        console.log('click button');
+    };
 
     return (
         <div className={BookDetailsCSS['general-container']}>
@@ -40,6 +49,13 @@ const BookDetails = () => {
                             alt={details.title} 
                             className={BookDetailsCSS['image']}
                     />
+                    <br />
+                    {!log ? '' : <button 
+                                    className={BookDetailsCSS['to-my-books']} 
+                                    onClick={toMyBooks}
+                                >
+                                    <GoPlus className={BookDetailsCSS['add-icon']} /> Add to My Books
+                                </button>}
                 </div>
 
                 <div className={BookDetailsCSS['details-container']}>
@@ -54,7 +70,7 @@ const BookDetails = () => {
                     </div>
                     <h1 className={BookDetailsCSS['title']}>{details.title}</h1>
                     <h2 className={BookDetailsCSS['subtitle']}>{details.subtitle ? details.subtitle : ''}</h2>
-                    <p className={BookDetailsCSS['description']}>{details.description ? details.description : ''}</p>
+                    <p className={BookDetailsCSS['description']}>{details.description ? details.description.replace(/(<([^>]+)>)/ig, '') : ''}</p>
 
                     <div className={BookDetailsCSS['extra-container']}>
                         {/* Rating */}
@@ -101,6 +117,7 @@ const BookDetails = () => {
                                 >
                                     Read more
                                 </a>
+                                
                             </div>
                         </div>
                     </div>

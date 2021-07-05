@@ -13,3 +13,9 @@
     flex-wrap: wrap;
     justify-content: center;;
 }
+
+.no-results {
+    text-align: center;
+    font-weight: normal;
+    color: #4285f4;
+}
