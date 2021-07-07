@@ -18,13 +18,16 @@ import {deleteBook} from '../actions';
 
 
 const ListedBooks = (props) => {
-    const id = props.info.id;
     const [like, setLike] = useState(false);
     const dispatch = useDispatch();
 
+    const eliminateBook = (e) => {
+        dispatch(deleteBook(e.target.id));
+    };
+
     return (
         <div className={ListedBooksCSS['general-container']}>
-            <Link to={`/info/${id}`} className={ListedBooksCSS['link']}>
+            <Link to={`/info/${props.info.id}`} className={ListedBooksCSS['link']}>
                 <div className={ListedBooksCSS['info-container']}>
                     <img 
                             src={props.info.image ? props.info.image : cover} 
@@ -57,8 +60,8 @@ const ListedBooks = (props) => {
                 />
                 <IoClose
                     className={ListedBooksCSS['delete-icon']}
-                    value={id}
-                    onClick={() => dispatch(deleteBook(id))}
+                    id={props.info.id}
+                    onClick={eliminateBook}
                 />
             </div>
         </div>

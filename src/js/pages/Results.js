@@ -24,7 +24,7 @@ const Results = () => {
             setBooks(response.data.items);
         }
         fetchData();      
-    }, [url])
+    }, [url]);
 
     return (
         <div className={ResultsCSS['general-container']}>

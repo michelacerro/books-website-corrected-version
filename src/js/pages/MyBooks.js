@@ -13,7 +13,6 @@ import Button from '../components/Button';
 
 const MyBooks = () => {
     const booksList = useSelector(state => state.listReducer.books);
-    console.log(booksList);
 
     return (
         <div className={MyBooksCSS['general-container']}>

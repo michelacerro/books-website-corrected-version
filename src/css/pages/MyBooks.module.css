@@ -9,8 +9,7 @@
     width: 30%;
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
-    padding-right: 150px;
+    padding: 100px 150px 0 0;
 }
 .link-button {position: fixed;}
 
@@ -19,7 +18,7 @@
     width: 65%;
     height: 5em;
     font-size: 2em;
-    padding-left: 10px;
+    padding: 0 10px;
     display: flex;
     align-items: flex-end;
 }

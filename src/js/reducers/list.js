@@ -1,8 +1,4 @@
-const initialState = {
-    books: []
-}
-
-const listReducer = (state = initialState, action) => {
+const listReducer = (state = {books: []}, action) => {
     switch(action.type) {
         case 'ADD_BOOK':
             return {
