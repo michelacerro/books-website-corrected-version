@@ -9,9 +9,12 @@ import cover from '../../images/cover.jpg';
 
 // Dependencies
 import React, {useState, useEffect} from 'react';
-import {useParams, Link} from 'react-router-dom';
-import {useSelector} from 'react-redux';
+import {useParams, Link, useHistory} from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux';
 import axios from 'axios';
+
+// Actions
+import {addBook} from '../actions';
 
 // Components
 import BooksRating from '../components/BooksRating';
@@ -21,7 +24,7 @@ import Button from '../components/Button';
 
 const BookDetails = () => {
     const log = useSelector(state => state.logReducer);
-    const [details, setDetails] = useState([]);
+    const [details, setDetails] = useState({});
     const {id} = useParams();
     const apyKey = process.env.REACT_APP_BOOKS_API_KEY;
     const url =`https://www.googleapis.com/books/v1/volumes/${id}?key=${apyKey}`;
@@ -35,27 +38,35 @@ const BookDetails = () => {
         fetchDetails();
     }, [url]);
 
+    const dispatch = useDispatch()
+    const history = useHistory();
+
     const toMyBooks = () => {
-        console.log('click button');
+        dispatch(addBook({
+            id: id,
+            image: details.imageLinks.thumbnail,
+            title: details.title,
+            authors: details.authors
+        }));
+        history.push('/my-books');
     };
 
     return (
         <div className={BookDetailsCSS['general-container']}>
             <div className={BookDetailsCSS['data-container']}>
 
-                {/* Image */}
+                {/* Image + add button */}
                 <div>
                     <img    src={details.imageLinks ? details.imageLinks.thumbnail : cover} 
                             alt={details.title} 
                             className={BookDetailsCSS['image']}
                     />
                     <br />
-                    {!log ? '' : <button 
-                                    className={BookDetailsCSS['to-my-books']} 
-                                    onClick={toMyBooks}
-                                >
-                                    <GoPlus className={BookDetailsCSS['add-icon']} /> Add to My Books
-                                </button>}
+                    {!log ? '' : 
+                                <button className={BookDetailsCSS['to-my-books']} onClick={toMyBooks}>
+                                    <GoPlus /> Add to My Books
+                                </button>                                
+                    }
                 </div>
 
                 <div className={BookDetailsCSS['details-container']}>

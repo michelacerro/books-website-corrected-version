@@ -1,0 +1,50 @@
+.general-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 100px;
+}
+
+.button-container {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 150px;
+}
+.link-button {position: fixed;}
+
+.list-container {width: 65%;}
+.no-books {
+    width: 65%;
+    height: 5em;
+    font-size: 2em;
+    padding-left: 10px;
+    display: flex;
+    align-items: flex-end;
+}
+
+
+/* ----- Responsiveness ----- */
+@media only screen and (max-width: 800px) {
+    .general-container {
+        flex-direction: column-reverse;
+        align-items: center;
+        padding-top: 70px;
+    }
+
+    .button-container {
+        justify-content: center;
+        padding: 50px 0 20px 0;
+    }
+    .link-button {position: relative;}
+
+    .list-container {width: 90%;}
+
+    .no-books {
+        width: 95%;
+        font-size: 1.5em;
+        text-align: center;
+        padding: 0;
+    }
+}
