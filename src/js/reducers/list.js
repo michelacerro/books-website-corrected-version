@@ -3,7 +3,7 @@ const listReducer = (state = {books: []}, action) => {
         case 'ADD_BOOK':
             return {
                 ...state,
-                books: [action.data, ...state.books]
+                books: [action.data, ...state.books.filter(book => book.id !== action.data.id)]
             };
         case 'DELETE_BOOK':
             return {
@@ -12,6 +12,6 @@ const listReducer = (state = {books: []}, action) => {
             };
         default:
             return state;
-    }
-}
+    };
+};
 export default listReducer;
