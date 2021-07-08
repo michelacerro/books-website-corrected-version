@@ -8,7 +8,7 @@ import {useHistory, Link} from 'react-router-dom';
 // Contexts
 import {useAuth} from '../contexts/AuthContext';
 
-// Components 
+// Components
 import EmailItem from '../components/form/EmailItem';
 import PasswordItem from '../components/form/PasswordItem';
 import PasswordConfirmItem from '../components/form/PasswordConfirmItem';
