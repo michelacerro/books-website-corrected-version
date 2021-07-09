@@ -38,7 +38,7 @@ const ListedBooks = (props) => {
                         <div className={ListedBooksCSS['author-container']}>
                             {props.info.authors ? 
                                 props.info.authors.map(author => (
-                                    <h3 key={props.key + author}
+                                    <h3 key={props.info.id + author}
                                         className={ListedBooksCSS['author']}
                                     >
                                         {author}
