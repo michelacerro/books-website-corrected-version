@@ -4,13 +4,11 @@ import FormCSS from '../../css/components/Form.module.css';
 // Dependecies
 import React from 'react';
 import {Link, useHistory} from 'react-router-dom';
-import {useDispatch} from 'react-redux';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 // Contexts
 import {useAuth} from '../contexts/AuthContext';
-
-// Actions
-import {loginState} from '../actions';
 
 // Components 
 import EmailItem from '../components/form/EmailItem';
@@ -22,14 +20,13 @@ import Button from '../components/Button';
 const Login = () => {
     const {login} = useAuth();
     const history = useHistory();
-    const dispatch = useDispatch();
 
     const handleLogin = async (e) => {
         e.preventDefault();
         const {email, password} = e.target.elements;
         try {
+            await firebase.auth().setPersistence('session');
             await login(email.value, password.value);
-            dispatch(loginState());
             history.push('/search');
         } catch (error) {
             alert(`Failed to log in: ${error}`);

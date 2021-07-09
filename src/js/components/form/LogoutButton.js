@@ -3,13 +3,12 @@ import FormCSS from '../../../css/components/Form.module.css';
 
 // Dependecies
 import React from 'react';
-import {useDispatch} from 'react-redux';
+import {useHistory} from 'react-router-dom';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 // Contexts
 import {useAuth} from '../../contexts/AuthContext';
-
-// Actions
-import {logoutState} from '../../actions';
 
 // Component
 import Button from '../Button';
@@ -17,13 +16,15 @@ import Button from '../Button';
 
 const Logout = () => {
     const {logout} = useAuth();
-    const dispatch = useDispatch();
+    const history = useHistory();
 
     const handleLogout = async (e) => {
         e.preventDefault();
         try {
             await logout;
-            dispatch(logoutState());
+            await firebase.auth().setPersistence('none');
+            history.push('/');
+            window.location.reload();
         } catch (error){
             alert(error);
         }

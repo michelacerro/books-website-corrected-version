@@ -4,7 +4,6 @@ import HeaderCSS from '../../css/components/Header.module.css';
 // Dependecies
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {useSelector} from 'react-redux';
 
 // Contexts
 import {useAuth} from '../contexts/AuthContext';
@@ -17,14 +16,13 @@ import LogoutButton from '../components/form/LogoutButton';
 
 const Header = () => {
     const {currentUser} = useAuth();
-    const log = useSelector(state => state.logReducer);
 
     return (
         <div className={HeaderCSS['header']}>
             <div className={HeaderCSS['container']}>
                 <Link to='/books-website' className={HeaderCSS['link']}>Bookland</Link>
                 <div className={HeaderCSS['state']}>
-                    {!log ?
+                    {!currentUser ?
                             <Link to='/login'><Button text='Log In' /></Link>
                         :
                         <>

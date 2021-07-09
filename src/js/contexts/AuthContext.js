@@ -1,5 +1,5 @@
 // Dependencies
-import React, {createContext, useContext, useState, useEffect} from 'react'; 
+import React, {createContext, useContext, useState, useEffect} from 'react';
 import {auth} from '../firebase';
 
 
@@ -11,20 +11,18 @@ export const useAuth = () => {
 export const AuthProvider = ({children}) => {
     const [currentUser, setCurrentUser] =  useState(null);
 
-    const signup =  (email, password) => {
-        return auth.createUserWithEmailAndPassword(email, password);
-    };
-
-    const login = (email, password) => {
-        return auth.signInWithEmailAndPassword(email, password);
-    };      
-
-    const logout = () => {
-        return auth.signOut();
-    };
+    const signup =  (email, password) => auth.createUserWithEmailAndPassword(email, password);
+    const login = (email, password) => auth.signInWithEmailAndPassword(email, password);
+    const logout = () => auth.signOut();
 
     useEffect(() => {
-        auth.onAuthStateChanged(setCurrentUser);
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                setCurrentUser(user);
+            } else {
+                setCurrentUser(null);
+            }
+        });
     }, []);
 
     const value = {
