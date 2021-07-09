@@ -4,7 +4,7 @@ Corrected version
 
 ## Description
 ### General description
-A React app to search books in a large catalogue. <br /> <br />
+A React app to search books in a large catalogue and create your own list. <br /> <br />
 How it works: 
 1. Register or login (if you want)
 2. Enter a search criterion
