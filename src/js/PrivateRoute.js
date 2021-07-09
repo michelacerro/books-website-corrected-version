@@ -1,15 +1,17 @@
 // Dependencies
 import React from 'react';
 import {Route, Redirect} from 'react-router-dom';
-import {useSelector} from 'react-redux';
+
+// Contexts
+import {useAuth} from '../contexts/AuthContext';
 
 
 const PrivateRoute = ({component: RouteComponent}) => {
-    const log = useSelector(state => state.logReducer);
+    const {currentUser} = useAuth();
 
     return (
         <Route>
-            {log ? 
+            {currentUser ? 
                 <RouteComponent />
             :
                 <div>
