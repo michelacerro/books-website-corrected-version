@@ -10,11 +10,14 @@ import cover from '../../images/cover.jpg';
 // Dependencies
 import React, {useState, useEffect} from 'react';
 import {useParams, Link, useHistory} from 'react-router-dom';
-import {useSelector, useDispatch} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import axios from 'axios';
 
 // Actions
 import {addBook} from '../actions';
+
+// Contexts
+import {useAuth} from '../contexts/AuthContext';
 
 // Components
 import BooksRating from '../components/BooksRating';
@@ -23,7 +26,7 @@ import Button from '../components/Button';
 
 
 const BookDetails = () => {
-    const log = useSelector(state => state.logReducer);
+    const {currentUser} = useAuth();
     const [details, setDetails] = useState({});
     const {id} = useParams();
     const apyKey = process.env.REACT_APP_BOOKS_API_KEY;
@@ -62,7 +65,7 @@ const BookDetails = () => {
                             className={BookDetailsCSS['image']}
                     />
                     <br />
-                    {!log ? '' : 
+                    {!currentUser ? '' : 
                                 <button className={BookDetailsCSS['to-my-books']} onClick={toMyBooks}>
                                     <GoPlus /> Add to My Books
                                 </button>                                
