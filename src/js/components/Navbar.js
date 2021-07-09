@@ -8,12 +8,14 @@ import {IoClose} from 'react-icons/io5';
 // Dependencies
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
-import {useSelector} from 'react-redux';
+
+// Contexts
+import {useAuth} from '../contexts/AuthContext';
 
 
 const Navbar = () => {
     const [openMenu, setOpenMenu] = useState(false);
-    const log = useSelector(state => state.logReducer);
+    const {currentUser} = useAuth();
 
     const showMenu = () => {
         const n = document.getElementById('navbar');
@@ -43,7 +45,7 @@ const Navbar = () => {
                             <Link to='/search' className={NavbarCSS['navbar-links']}>Search</Link>
                         </button>
                         <div className={NavbarCSS['divider']}></div>
-                        {!log
+                        {!currentUser
                             ?
                             <> 
                                 <button className={NavbarCSS['navbar-item']} onClick={showMenu}>

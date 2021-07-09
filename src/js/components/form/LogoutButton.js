@@ -29,6 +29,7 @@ const Logout = () => {
             alert(error);
         }
     };
+
     return (
         <div className={FormCSS['button']}>
             <form onSubmit={handleLogout}>

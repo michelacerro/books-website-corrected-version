@@ -4,7 +4,9 @@ import HomeCSS from '../../css/pages/Home.module.css';
 // Dependencies
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {useSelector} from 'react-redux';
+
+// Contexts
+import {useAuth} from '../contexts/AuthContext';
 
 // Components 
 import Button from '../components/Button';
@@ -12,7 +14,7 @@ import Footer from '../components/Footer';
 
 
 const Home = () => {
-    const log = useSelector(state => state.logReducer);
+    const {currentUser} = useAuth();
 
     return (
         <div className={HomeCSS['home']}>
@@ -22,7 +24,7 @@ const Home = () => {
             <Link to='/search'>
                 <Button text='Make a research!' />
             </Link>
-            {!log ? <Footer /> : <div></div>}   
+            {!currentUser ? <Footer /> : <div></div>}   
         </div>
     );
 };

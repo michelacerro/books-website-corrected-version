@@ -25,6 +25,7 @@ import Error from './pages/Error';
 //
 import PrivateRoute from './PrivateRoute';
 
+
 const App = () => {
     return (
         <div className='app'>

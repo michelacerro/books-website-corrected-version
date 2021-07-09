@@ -31,7 +31,7 @@ const BookDetails = () => {
     const {id} = useParams();
     const apyKey = process.env.REACT_APP_BOOKS_API_KEY;
     const url =`https://www.googleapis.com/books/v1/volumes/${id}?key=${apyKey}`;
-    
+  
     useEffect(() => {
         const fetchDetails = async () => {
             const response = await axios.get(url)
@@ -53,6 +53,7 @@ const BookDetails = () => {
         }));
         history.push('/my-books');
     };
+    
 
     return (
         <div className={BookDetailsCSS['general-container']}>
