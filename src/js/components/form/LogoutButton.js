@@ -23,7 +23,7 @@ const Logout = () => {
         try {
             await logout;
             await firebase.auth().setPersistence('none');
-            history.push('/');
+            history.push('/books-website-corrected-version');
             window.location.reload();
         } catch (error){
             alert(error);

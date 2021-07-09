@@ -17,7 +17,7 @@ const Error = () => {
                     <div className={ErrorCSS['number']}>404</div>
                     <div className={ErrorCSS['text']}>Page not found</div>
                 </div>
-                <Link to='/'><Button text='Return to Home' /></Link>
+                <Link to='/books-website-corrected-version'><Button text='Return to Home' /></Link>
             </div>
         </div>
     );

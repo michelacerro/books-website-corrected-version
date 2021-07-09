@@ -35,7 +35,7 @@ const App = () => {
                     </div>
                     <div className='pages'>
                         <Switch>
-                            <Route exact path='/' component={Home} />
+                            <Route exact path='/books-website-corrected-version' component={Home} />
                             <Route exact path='/signup' component={Signup} />
                             <Route exact path='/login' component={Login} />
                             <Route exact path='/logout' component={Logout} />
